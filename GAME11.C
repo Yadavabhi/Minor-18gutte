@@ -26,9 +26,9 @@
 	line(160,300,480,300);
 
 	line(160,240,320,360); //Inter joining of mid point
-	line(480,240,320,360);
-	line(160,240,320,120);
-	line(480,240,320,120);
+	line(480,240,320,360); //Inter joining of mid point
+	line(160,240,320,120); //Inter joining of mid point
+	line(480,240,320,120); //Inter joining of mid point
 
 	line(7,240,160,240); //Mid line of right triangle
 	line(80,180,80,300);
