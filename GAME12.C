@@ -4,10 +4,10 @@
 	#include<graphics.h>
 	main()
 	{
-	 int a=DETECT,b;
-
 	 union REGS i,o;
-	 clrscr();
+	 int a=DETECT,b;
+         int button;
+	  clrscr();
 	 i.x.ax=0;
 	initgraph(&a,&b,"C:\\TURBOC3\\BGI");
 
@@ -106,7 +106,7 @@ printf("mouse not available");
 i.x.ax=1;
 int86(0x33,&i,&o);
 
-gotoxy(25,23);
+gotoxy(35,4);
 printf("press any key to exit");
 
 while(!kbhit())
@@ -115,31 +115,22 @@ while(!kbhit())
   int86(0x33,&i,&o);
   gotoxy(2,2);
   printf("x coordinate=%d\n y coordinate=%d",o.x.cx,o.x.dx);
-i.x.ax=3;
-	int86(0x33,&i,&o);
-
-	button=o.x.bx&7;
-
-	gotoxy(63,41);
-	switch(button)
+  button=o.x.bx&7;
+  gotoxy(30,25);
+  switch(button)
 	{
 	  case 1:
-	printf("Left button pressed                                  ");
-	printf("move forward");
+	printf("Left button pressed");
 	  break;
 
 	  case 2:
-	   printf("Right button pressed                                  ");
-	   printf("move backward");
-		  break;
-
-
-
+	   printf("Right button pressed");
+           break;
+        
 	  default:
 	printf("No button pressed....");
 	}
       }
-  }
 i.x.ax=2;
 int86(0x33,&i,&o);
 
